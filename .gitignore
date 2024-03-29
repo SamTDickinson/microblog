@@ -7,3 +7,5 @@ dist
 venv
 .env
 .env
+.idea
+__pycache__
