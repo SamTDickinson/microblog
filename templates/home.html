@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Microblog</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <meta name="description" content="">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <link rel="icon" href="/static/favicon.icocon.ico" sizes="any">
+    <link rel="icon" href="/static/icon.svgcon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/static/img/icon.png">
+
+    <link rel="manifest" href="/static/site.webmanifest">
+    <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+<!-- Add your site or application content here -->
+<header class="navbar">
+    <div class="navbar__brand">
+        <img src="/static/img/microblog-logo.svg" alt="The Microblog logo" class="navbar__logo">Microblog
+    </div>
+    <ul class="navbar__navigation">
+        <li class="navbar__navigation-item"><a href="#" class="navbar__link">Recent</a></li>
+        <li class="navbar__navigation-item"><a href="#" class="navbar__link">Calendar</a></li>
+    </ul>
+</header>
+<main class="main">
+    <section>
+        <h1>Add new entry</h1>
+        <form method="post" class="form">
+            <p class="form__input">
+                <label for="entry" class="form__label">Entry Content:</label>
+                <textarea name="content"
+                          id="entry"
+                          class="form__textarea"
+                          aria-label="Entry Content"></textarea>
+            </p>
+            <button type="submit" class="form__submit">Submit</button>
+        </form>
+    </section>
+    <section>
+        <h1>Recent posts</h1>
+        {% for entry in entries %}
+        <article class="entry">
+            <div>
+                <h2 class="entry__title">{{ entry[0] | truncate(30, true) }}</h2>
+                <time class="entry__date" datetime="{{entry[1]}}"> • {{ entry[2] }}</time>
+            </div>
+            <p class="entry__content">{{ entry[0] }}</p>
+        </article>
+        {% endfor %}
+    </section>
+</main>
+<footer class="footer">
+    <div class="footer__content">
+        <section class="left">
+            <a href="#" class="footer__item">Made by Bison Works</a>
+            <a href="#" class="footer__item">Other Projects</a>
+        </section>
+        <section class="right">
+            <div class="footer__column">
+                <a href="#" class="footer__item">Recent</a>
+                <a href="#" class="footer__item">Calendar</a>
+            </div>
+            <div class="footer__column">
+                <a href="#" class="footer__item">About</a>
+                <a href="#" class="footer__item">How this was made</a>
+            </div>
+        </section>
+    </div>
+</footer>
+<script src="js/app.js"></script>
+</body>
+
+</html>
